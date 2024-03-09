@@ -7,9 +7,12 @@
 
 
 ```bash
-docker build -t ride-duration-prediction-service:v1 .
+docker build -t ride-duration-prediction-service:v1 . # build a image using dockerfile
 ```
 
-```bash
-docker run -it --rm -p 9696:9696  ride-duration-prediction-service:v1
+```bash 
+# -it means in interactive mode so that we can exit using ctrl+C
+# --rm means remove image after done
+# -p means find the port
+docker run -it --rm -p 9696:9696 ride-duration-prediction-service:v1 # run app packaged on docker on the image
 ```

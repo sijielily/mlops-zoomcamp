@@ -21,10 +21,10 @@ def predict(features):
 
 app = Flask('duration-prediction')
 
-
-@app.route('/predict', methods=['POST'])
+# the endpoint name is predict
+@app.route('/predict', methods=['POST'])# turn predict_endpoint() into an endpoint
 def predict_endpoint():
-    ride = request.get_json()
+    ride = request.get_json()#input json 
 
     features = prepare_features(ride)
     pred = predict(features)

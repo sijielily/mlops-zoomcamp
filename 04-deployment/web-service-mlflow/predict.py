@@ -9,7 +9,7 @@ RUN_ID = os.getenv('RUN_ID')
 
 logged_model = f's3://mlflow-models-alexey/1/{RUN_ID}/artifacts/model'
 # logged_model = f'runs:/{RUN_ID}/model'
-model = mlflow.pyfunc.load_model(logged_model)
+model = mlflow.pyfunc.load_model(logged_model) # the model is a pipeline with model and DictVectorizer() 
 
 
 def prepare_features(ride):
@@ -20,7 +20,7 @@ def prepare_features(ride):
 
 
 def predict(features):
-    preds = model.predict(features)
+    preds = model.predict(features) # Use the pipeline to predict transforming features automatically before fit into the model
     return float(preds[0])
 
 
